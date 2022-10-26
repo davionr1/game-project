@@ -1,0 +1,118 @@
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    margin: 0;
+}
+.header{
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+h1{
+    position: relative;
+    color: black;
+    text-align: center;
+    font-size: 3em;
+}
+a{
+    position: relative;
+    font-size: 3em;
+    text-decoration: none;
+    top: -1.85em;
+}
+:root{
+    --tile-size: 100px;
+    --mark-size: calc(var(--tile-size) * .9);
+}
+.grid{
+    width:100vh;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3,auto);
+    position: relative;
+    left: 28em; 
+}
+.tile{
+    width: var(--tile-size);
+    height: var(--tile-size);
+    background-color: white;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.tile.x::before, .tile.x::after, .tile.o::before, .tile.o::after{
+    background-color: black;
+}
+.grid.x .tile.hover,  .grid.x .tile:not(.x):not(.o):hover::before,  .grid.x .tile:not(.x):not(.o):hover::after, .grid.o .tile.hover,  
+.grid.o .tile:not(.x):not(.o):hover::before,  
+.grid.o .tile:not(.x):not(.o):hover::after
+{
+    background-color: lightgrey;
+}
+
+
+.tile.x::before, .tile.x::after, .grid.x .tile:not(.x):not(.o):hover::before, .grid.x .tile:not(.x):not(.o):hover::after{
+    content:'';
+    position: absolute;
+    width:calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+}
+.tile.x::before,  .grid.x .tile:not(.x):not(.o):hover::before{
+    transform: rotate(45deg);
+}
+.tile.x::after,   .grid.x .tile:not(.x):not(.o):hover::after{
+    transform: rotate(-45deg);
+}
+.tile.o::before, .tile.o::after, .grid.o .tile:hover::before, .grid.o .tile:hover::after{
+    content:'';
+    position: absolute;
+    border-radius: 50%;
+}
+.tile.o::before, .grid.o .tile:hover::before{
+    width: var(--mark-size) ;
+    height: var(--mark-size);
+    background-color: black;
+}
+.tile.o::after, .grid.o .tile:hover::after{
+    width: calc(var(--mark-size) * .7);
+    height: calc(var(--mark-size)* .7);
+    background-color: white;
+}
+.tile.x, .tile.o{
+    cursor: not-allowed;
+}
+.outcome{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(166, 166, 166, 0.9);
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 3em;
+}
+.outcome button{
+    font-size: 0.7em;
+    background-color: black;
+    cursor: pointer;
+}
+
+#reset{
+    color: white;
+}
+.outcome.display{
+    display:flex;
+}
