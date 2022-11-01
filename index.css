@@ -6,19 +6,22 @@ body{
     background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
+    text-align: center;
 }
 h1{
     color: black;
-    text-align: center;
     font-size: 3em;
 }
 
 a{
-    position: absolute;
-    color: white;
-    left: 17.5em;
+    position: relative;
+    color: black;
     font-size: 3em;
     text-decoration: none;
+    text-align: center;
+}
+*{
+    border: 1px solid red;
 }
 button{
     position:absolute;
