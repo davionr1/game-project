@@ -4,32 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="play.css">
-        <script src="index.js"></script>
+        <script src="play.js" defer></script>
         <title>Tic-Tac-Toe</title>
     </head>
 
-    <body>
+    
 
     <div class="header">
         <h1>Tic-Tac-Toe</h1>
         <a href="/index.html">Home</a>
     </div>
-                
-                
-            <div class="grid x" id="grid">
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
-                <div class="tile" data-tile></div>
+      <body>     
+                <div class="grid " id="grid">
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
+                <div class="tile" tile></div>
             </div>
-                <div class="outcome" id="outcome">
-                    <div data-win>X wins</div>
+                <div class="end-message" id="endMessage">
+                    <div winText></div>
                     <button id="reset">Reset</button>
-                </div>
+               </div> 
+                <div class="show-players">
+                    <div class="playerX">Player <spanX>X</spanX>: <counterX>0</counterX></div>
+                    <div class="playerO">Player <spanO>O</spanO>: <counterO>0</counterO></div>
+                
+            </div>
     </body>
 </html>

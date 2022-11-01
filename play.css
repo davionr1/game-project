@@ -1,7 +1,5 @@
 
-*,*::after,*::before{
-    box-sizing: border-box;
-}
+
 body{
     background-color: black;
     margin: 0;
@@ -50,48 +48,51 @@ a{
     position: relative;
     cursor: pointer;
 }
-.tile.x::before, .tile.x::after, .tile.o::before, .tile.o::after{
-    background-color: black;
+ 
+.tile.x::before, .tile.x::after {
+    background-color: green;
 }
-.grid.x .tile.hover,  .grid.x .tile:not(.x):not(.o):hover::before,  .grid.x .tile:not(.x):not(.o):hover::after, .grid.o .tile.hover,  
-.grid.o .tile:not(.x):not(.o):hover::before,  
-.grid.o .tile:not(.x):not(.o):hover::after
+ .tile.o::before{
+    background-color: rgb(47, 47, 230);
+} 
+
+.tile.x::before,
+.tile.x::after, 
+.grid.x .tile:not(.x):not(.o)::before,
+.grid.x .tile:not(.x):not(.o)::after
 {
-    background-color: lightgrey;
-}
-
-
-.tile.x::before, .tile.x::after, .grid.x .tile:not(.x):not(.o):hover::before, .grid.x .tile:not(.x):not(.o):hover::after{
-    content:'';
+    content: '';
     position: absolute;
-    width:calc(var(--mark-size) * .15);
+    width: calc(var(--mark-size) * .15);
     height: var(--mark-size);
+    
 }
-.tile.x::before,  .grid.x .tile:not(.x):not(.o):hover::before{
+.tile.x::before, 
+.grid.x .tile:not(.x):not(.o)::before
+{
     transform: rotate(45deg);
 }
-.tile.x::after,   .grid.x .tile:not(.x):not(.o):hover::after{
+.tile.x::after, 
+.grid.x .tile:not(.x):not(.o)::after{
     transform: rotate(-45deg);
 }
-.tile.o::before, .tile.o::after, .grid.o .tile:hover::before, .grid.o .tile:hover::after{
+.tile.o::before, .tile.o::after, .grid.o .tile:not(.x):not(.o)::before, .grid.o .tile:not(.x):not(.o)::after {
     content:'';
     position: absolute;
     border-radius: 50%;
 }
-.tile.o::before, .grid.o .tile:hover::before{
-    width: var(--mark-size) ;
+.tile.o::before, .grid.o .tile:not(.x):not(.o)::before{
+    width: var(--mark-size);
     height: var(--mark-size);
-    background-color: black;
+   
 }
-.tile.o::after, .grid.o .tile:hover::after{
+.tile.o::after, .grid.o .tile:not(.x):not(.o)::after{
     width: calc(var(--mark-size) * .7);
     height: calc(var(--mark-size)* .7);
     background-color: white;
 }
-.tile.x, .tile.o{
-    cursor: not-allowed;
-}
-.outcome{
+
+.end-message{
     display: none;
     position: fixed;
     top: 0;
@@ -104,15 +105,29 @@ a{
     color: black;
     font-size: 3em;
 }
-.outcome button{
+.end-message button{
     font-size: 0.7em;
     background-color: black;
     cursor: pointer;
+    padding:15px;
 }
 
 #reset{
     color: white;
 }
-.outcome.display{
+.end-message.show{
     display:flex;
+}
+.show-players{
+    color: white;
+    position: relative;
+    top: -5em;
+    font-size: 3em;
+    text-align: center;
+}
+.show-players spanX{
+    color: green;
+}
+.show-players spanO{
+    color: blue;
 }
