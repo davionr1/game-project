@@ -20,9 +20,6 @@ a{
     text-decoration: none;
     text-align: center;
 }
-*{
-    border: 1px solid red;
-}
 button{
     position:absolute;
     top: 1em;
